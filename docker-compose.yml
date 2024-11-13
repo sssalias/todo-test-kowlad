@@ -7,15 +7,12 @@ services:
       dockerfile: Dockerfile
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.frontend-https.rule=Host(`kowlad.ru`)"
-      - "traefik.http.routers.frontend-https.service=frontend"
-      - "traefik.http.routers.frontend-https.entrypoints=websecure"           # Используем HTTPS (websecure)
-      - "traefik.http.routers.frontend-https.tls.certresolver=leresolver"     # Используем Let's Encrypt для TLS
+      - "traefik.http.routers.frontend.rule=Host(`kowlad.ru`)"
+      - "traefik.http.routers.frontend.service=frontend"
+      - "traefik.http.routers.frontend.entrypoints=websecure"           # Используем HTTPS (websecure)
+      - "traefik.http.routers.frontend.tls.certresolver=leresolver"     # Используем Let's Encrypt для TLS
       - "traefik.http.services.frontend.loadbalancer.server.port=80"
-      # Добавляем HTTP → HTTPS редирект
-      - "traefik.http.routers.frontend-http.rule=Host(`kowlad.ru`)"
-      - "traefik.http.routers.frontend-http.entrypoints=web"
-      - "traefik.http.routers.frontend-http.middlewares=redirect-to-https"
+      - "traefik.http.services.frontend.loadbalancer.server.scheme=https"
     networks:
       - traefik
 

@@ -13,8 +13,8 @@ const Layout: React.FC<Props> = props => {
                         <img className='w-full h-full object-cover' src={logo} alt="((" />
                     </div>
                     <div className='flex flex-col'>
-                        <h1 className='text-2xl'>TODO.LISt</h1>
-                        <span>Powerd by iKowlad!</span>
+                        <h1 className='text-2xl'>TODO.LIST</h1>
+                        <span>Powerd by Kowlad!</span>
                     </div>
                 </div>
                 <nav>

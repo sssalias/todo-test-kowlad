@@ -1,19 +1,14 @@
-import { Todo } from '../../api/gen'
+import { useTodoStore } from '../../store/todo-state/todo-state'
 import { TodoListItem } from '../todo-list-item'
-
-const todos:Todo[] = [
-    {
-        title: 'Съесть негра',
-        description: 'Негр должен быть чёрным!',
-        status: 'pending'
-    }
-]
 
 
 const TodoList: React.FC = () => {
+
+    const {todos} = useTodoStore()
+
     return (
         <div className='flex flex-col gap-4'>
-            {todos.map(todo => <TodoListItem todo={todo}/>)}
+            {todos.map(todo => <TodoListItem key={todo.id} todo={todo}/>)}
         </div>
     )
 }

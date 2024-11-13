@@ -1,7 +1,7 @@
 import { Configuration, TasksApi } from '../gen'
 
 export const apiConfig = new Configuration({
-    basePath: 'https://backend.kowlad.ru/todo-api/v1',
+    basePath: 'http://api.kowlad.ru/todo-api/v1',
 })
 
 

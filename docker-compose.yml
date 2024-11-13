@@ -1,0 +1,25 @@
+name: "frontend"
+
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.frontend-https.rule=Host(`kowlad.ru`)"
+      - "traefik.http.routers.frontend-https.service=frontend"
+      - "traefik.http.routers.frontend-https.entrypoints=websecure"           # Используем HTTPS (websecure)
+      - "traefik.http.routers.frontend-https.tls.certresolver=leresolver"     # Используем Let's Encrypt для TLS
+      - "traefik.http.services.frontend.loadbalancer.server.port=8080"
+      # Добавляем HTTP → HTTPS редирект
+      - "traefik.http.routers.frontend-http.rule=Host(`frontend.kowlad.ru`)"
+      - "traefik.http.routers.frontend-http.entrypoints=web"
+      - "traefik.http.routers.frontend-http.middlewares=redirect-to-https"
+    networks:
+      - traefik
+
+networks:
+  traefik:
+    name: "traefik-network"
+    external: true

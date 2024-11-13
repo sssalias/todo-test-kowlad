@@ -2,6 +2,7 @@ import { MdDelete } from 'react-icons/md'
 import { Todo } from '../../api/gen'
 import { deleteTodo } from '../../store/todo-state/deleteTodo'
 import { updateTodo } from '../../store/todo-state/updateTodo'
+import React from "react";
 
 type Props = {
     todo: Todo

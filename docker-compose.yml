@@ -7,13 +7,10 @@ services:
       dockerfile: Dockerfile
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.frontend.rule=Host(`kowlad.ru`)"
-      - "traefik.http.services.frontend.loadbalancer.server.port=80"
-      - "traefik.http.routers.frontend.entrypoints=web"
-#      - "traefik.http.routers.frontend.entrypoints=websecure"
-#      - "traefik.http.routers.frontend.tls=true"
-#      - "traefik.http.routers.frontend.tls.certresolver=leresolver"
-#      - "traefik.http.services.frontend.loadbalancer.server.scheme=https"
+      - "traefik.http.routers.frontend.rule=Host(`goida.dev`)"
+      - "traefik.http.routers.frontend.entrypoints=websecure"
+      - "traefik.http.routers.frontend.tls=true"
+      - "traefik.http.routers.frontend.tls.certresolver=leresolver"
     networks:
       - traefik
 

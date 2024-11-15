@@ -1,7 +1,7 @@
 import { Configuration, TasksApi } from '../gen'
 
 export const apiConfig = new Configuration({
-    basePath: 'http://api.goida.dev/todo-api/v1',
+    basePath: 'https://api.goida.dev/todo-api/v1',
 })
 
 

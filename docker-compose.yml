@@ -13,6 +13,7 @@ services:
       - "traefik.http.routers.frontend.tls.certresolver=leresolver"
     networks:
       - traefik
+    restart: unless-stopped
 
 networks:
   traefik:
